@@ -10,11 +10,14 @@ public class Util {
     private static final String USER = "root";
     private static final String PASSWORD = "root";
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         Connection connection = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
+
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            connection.setAutoCommit(false);
+
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("DB connection failed");
             e.printStackTrace();
