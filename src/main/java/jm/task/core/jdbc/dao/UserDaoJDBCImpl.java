@@ -36,6 +36,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
             e.printStackTrace();
         } finally {
             try {
+                connection.rollback();
                 connection.close();
                 statement.close();
             } catch (SQLException e) {
@@ -57,6 +58,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
             System.out.println("Таблица удалена");
         } finally {
             try {
+                connection.rollback();
                 statement.close();
                 connection.close();
             } catch (SQLException e) {
@@ -85,7 +87,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
             e.printStackTrace();
         } finally {
             try {
-
+                connection.rollback();
                 connection.close();
                 statement.close();
                 System.out.println(name + " " + lastName + " добавлен(а) в базу данных");
@@ -108,6 +110,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
             e.printStackTrace();
         } finally {
             try {
+                connection.rollback();
                 connection.close();
                 statement.close();
             } catch (SQLException e) {
@@ -139,6 +142,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
             e.printStackTrace();
         } finally {
             try {
+                connection.rollback();
                 connection.close();
                 statement.close();
                 resultSet.close();
@@ -164,6 +168,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
             e.printStackTrace();
         } finally {
             try {
+                connection.rollback();
                 connection.close();
                 statement.close();
             } catch (SQLException e) {
